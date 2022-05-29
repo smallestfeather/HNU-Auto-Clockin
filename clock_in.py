@@ -38,19 +38,24 @@ def login():
 def main():
     clockin_url = 'https://fangkong.hnu.edu.cn/api/v1/clockinlog/add'
     headers = login()
-    clockin_data={
-        "Longitude":"null",
-        "Latitude":"null",
-        "RealProvince":"湖南省",
-        "RealCity":"长沙市",
-        "RealCounty":"岳麓区",
-        "RealAddress":"宿舍",
-        "BackState":1,
-        "MorningTemp":"36.5",
-        "NightTemp":"36.5",
-        "tripinfolist":[],
-        "QRCodeColor":"绿色"
-    }
+    clockin_data = {
+                    "Longitude":"null",
+                    "Latitude":"null",
+                    "RealProvince":"湖南省",
+                    "RealCity":"长沙市",
+                    "RealCounty":"岳麓区",
+                    "RealAddress":"广圣斋",
+                    "BackState":1,
+                    "MorningTemp":"36.5",
+                    "NightTemp":"36.5",
+                    "tripinfolist":[],
+                    "QRCodeColor":"绿色",
+                    "BuildingName":"null",
+                    "IsInCampus":"是",
+                    "ParkName":"天马园区",
+                    "IsNormalTemperature":"是",
+                    "IsUnusual":"否"
+                    }
     clockin = requests.post(clockin_url, headers=headers, json=clockin_data)
     print(clockin.text)
     if clockin.status_code == 200:
